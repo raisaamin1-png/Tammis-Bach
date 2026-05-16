@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#d9c4b0" />
+<title>Tammi's Smoking Hot Bach 🔥</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #f5ede1; --cream-2: #ebe0cd;
+    --sage: #8a9a78; --sage-deep: #5e6f4d; --sage-soft: #c4d0b3;
+    --rose: #c08a8a; --rose-deep: #8e5f5f; --rose-soft: #e8d2cf;
+    --ink: #2a2620; --ink-soft: #5a544a;
+    --gold: #b08850; --ember: #d9633a;
+    --serif: 'Fraunces', 'Cormorant Garamond', Georgia, serif;
+    --sans: 'Inter', system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    font-family: var(--sans); background: var(--cream); color: var(--ink);
+    line-height: 1.55; min-height: 100vh; overflow-x: hidden; padding-bottom: 90px;
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(192,138,138,0.08), transparent 40%),
+      radial-gradient(circle at 80% 80%, rgba(138,154,120,0.08), transparent 40%);
+  }
+  .hero {
+    position: relative; padding: 32px 24px 40px; text-align: center; overflow: hidden;
+    background: linear-gradient(180deg, var(--cream-2) 0%, var(--cream) 100%);
+    border-bottom: 1px solid rgba(94,111,77,0.12);
+  }
+  .hero::before {
+    content: ''; position: absolute; inset: 0; pointer-events: none;
+    background-image:
+      radial-gradient(circle at 15% 50%, rgba(196,208,179,0.4) 0%, transparent 30%),
+      radial-gradient(circle at 85% 30%, rgba(232,210,207,0.5) 0%, transparent 35%),
+      radial-gradient(circle at 50% 100%, rgba(217,99,58,0.12) 0%, transparent 40%);
+  }
+  .hero-decoration {
+    font-family: var(--serif); font-style: italic; font-size: 13px; letter-spacing: 0.3em;
+    color: var(--sage-deep); text-transform: uppercase; margin-bottom: 8px; position: relative;
+  }
+  .hero h1 {
+    font-family: var(--serif); font-weight: 400; font-size: clamp(36px, 10vw, 54px);
+    line-height: 0.95; color: var(--ink); letter-spacing: -0.02em; margin-bottom: 4px; position: relative;
+  }
+  .hero h1 em { font-style: italic; color: var(--ember); font-weight: 500; }
+  .hero-flame { display: inline-block; font-size: 0.7em; margin-left: 4px; filter: drop-shadow(0 0 6px rgba(217,99,58,0.4)); }
+  .hero-sub { font-family: var(--serif); font-style: italic; font-size: 17px; color: var(--ink-soft); margin-top: 12px; position: relative; }
+  .hero-dates {
+    margin-top: 18px; display: inline-flex; align-items: center; gap: 10px;
+    padding: 8px 18px; background: rgba(255,255,255,0.6); border: 1px solid rgba(94,111,77,0.2);
+    border-radius: 999px; font-size: 13px; font-weight: 500; letter-spacing: 0.08em;
+    color: var(--sage-deep); text-transform: uppercase; position: relative;
+  }
+  .hero-dates .dot { width: 4px; height: 4px; border-radius: 50%; background: var(--rose); }
+  .sprig { position: absolute; color: var(--sage); opacity: 0.35; pointer-events: none; }
+  .sprig.left { top: 20px; left: 12px; transform: rotate(-25deg); }
+  .sprig.right { bottom: 16px; right: 16px; transform: rotate(120deg); }
+  .tab-nav {
+    position: sticky; top: 0; z-index: 50; background: rgba(245,237,225,0.95);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(94,111,77,0.15); padding: 10px 0;
+  }
+  .tab-scroll { display: flex; gap: 8px; padding: 0 20px; overflow-x: auto; scrollbar-width: none; }
+  .tab-scroll::-webkit-scrollbar { display: none; }
+  .tab {
+    flex-shrink: 0; padding: 8px 16px; background: transparent; border: 1px solid rgba(94,111,77,0.25);
+    border-radius: 999px; font-family: var(--sans); font-size: 13px; font-weight: 500;
+    color: var(--ink-soft); cursor: pointer; transition: all 0.25s ease; white-space: nowrap;
+  }
+  .tab:hover { color: var(--ink); border-color: var(--sage); }
+  .tab.active { background: var(--ink); color: var(--cream); border-color: var(--ink); }
+  .panel { display: none; padding: 28px 20px 40px; max-width: 720px; margin: 0 auto; animation: fadeUp 0.4s ease; }
+  .panel.active { display: block; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+  .section-label {
+    font-family: var(--serif); font-style: italic; font-size: 14px; letter-spacing: 0.25em;
+    color: var(--sage-deep); text-transform: uppercase; margin-bottom: 8px;
+  }
+  .section-title {
+    font-family: var(--serif); font-size: 32px; line-height: 1.05; color: var(--ink);
+    font-weight: 400; letter-spacing: -0.015em; margin-bottom: 6px;
+  }
+  .section-title em { font-style: italic; color: var(--rose-deep); }
+  .section-intro { font-size: 15px; color: var(--ink-soft); margin-bottom: 24px; max-width: 56ch; }
+  .day-header { margin-bottom: 24px; padding-bottom: 20px; border-bottom: 1px solid rgba(94,111,77,0.15); }
+  .day-tag {
+    display: inline-block; font-family: var(--sans); font-size: 11px; font-weight: 600;
+    letter-spacing: 0.18em; text-transform: uppercase; padding: 4px 12px;
+    background: var(--sage-soft); color: var(--sage-deep); border-radius: 4px; margin-bottom: 12px;
+  }
+  .day-title { font-family: var(--serif); font-size: 30px; line-height: 1.1; color: var(--ink); font-weight: 400; margin-bottom: 4px; letter-spacing: -0.015em; }
+  .day-title em { font-style: italic; color: var(--rose-deep); }
+  .day-date { font-family: var(--serif); font-style: italic; font-size: 16px; color: var(--ink-soft); margin-top: 4px; }
+  .weather-card {
+    margin-top: 16px; padding: 14px 16px;
+    background: linear-gradient(135deg, #f0e8d8 0%, #e8dec9 100%);
+    border-radius: 14px; display: flex; align-items: center; gap: 12px;
+    border: 1px solid rgba(176,136,80,0.2);
+  }
+  .weather-icon { width: 36px; height: 36px; flex-shrink: 0; color: var(--gold); }
+  .weather-text { font-size: 13.5px; color: var(--ink-soft); line-height: 1.45; }
+  .weather-text strong { color: var(--ink); font-weight: 600; }
+  .timeline { margin-top: 8px; }
+  .stop { position: relative; padding-left: 28px; padding-bottom: 24px; }
+  .stop::before { content: ''; position: absolute; left: 7px; top: 22px; bottom: 0; width: 1px; background: rgba(94,111,77,0.25); }
+  .stop:last-child::before { display: none; }
+  .stop::after {
+    content: ''; position: absolute; left: 0; top: 8px; width: 15px; height: 15px;
+    border-radius: 50%; background: var(--cream); border: 2px solid var(--sage);
+  }
+  .stop.bride-event::after { background: var(--rose); border-color: var(--rose-deep); }
+  .stop-time { font-family: var(--serif); font-style: italic; font-size: 14px; color: var(--sage-deep); font-weight: 500; letter-spacing: 0.04em; margin-bottom: 4px; }
+  .stop-title { font-family: var(--serif); font-size: 21px; line-height: 1.2; color: var(--ink); font-weight: 500; margin-bottom: 6px; letter-spacing: -0.01em; }
+  .stop-desc { font-size: 14.5px; color: var(--ink-soft); line-height: 1.55; margin-bottom: 12px; }
+  .price-block {
+    margin: 10px 0 14px; padding: 12px 14px;
+    background: rgba(176,136,80,0.08); border: 1px solid rgba(176,136,80,0.25);
+    border-radius: 10px;
+  }
+  .price-label {
+    font-family: var(--sans); font-size: 10.5px; font-weight: 700; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--gold); margin-bottom: 6px;
+  }
+  .price-row { display: flex; justify-content: space-between; align-items: baseline; font-size: 14px; padding: 3px 0; gap: 8px; }
+  .price-row .desc { color: var(--ink-soft); flex: 1; }
+  .price-row .amount { font-family: var(--serif); font-weight: 500; color: var(--ink); white-space: nowrap; }
+  .price-total { margin-top: 8px; padding-top: 8px; border-top: 1px dashed rgba(176,136,80,0.35); font-weight: 600; }
+  .price-total .desc { color: var(--ink); font-weight: 600; }
+  .price-total .amount { color: var(--gold); font-size: 15px; }
+  .stop-meta { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+  .distance-chip {
+    display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px;
+    background: rgba(255,255,255,0.7); border: 1px solid rgba(94,111,77,0.2);
+    border-radius: 999px; font-size: 12px; color: var(--ink-soft); font-weight: 500;
+  }
+  .distance-chip svg { width: 13px; height: 13px; color: var(--sage-deep); }
+  .nav-btn {
+    display: inline-flex; align-items: center; gap: 6px; padding: 7px 14px;
+    background: var(--ink); color: var(--cream); border-radius: 999px;
+    font-size: 12.5px; font-weight: 500; text-decoration: none;
+    transition: transform 0.15s ease, background 0.2s ease;
+  }
+  .nav-btn:hover, .nav-btn:active { background: var(--sage-deep); transform: translateY(-1px); }
+  .nav-btn svg { width: 14px; height: 14px; }
+  .call-btn {
+    display: inline-flex; align-items: center; gap: 6px; padding: 7px 14px;
+    background: var(--rose-deep); color: var(--cream); border-radius: 999px;
+    font-size: 12.5px; font-weight: 500; text-decoration: none;
+    transition: background 0.2s ease;
+  }
+  .call-btn:hover { background: var(--rose); }
+  .call-btn svg { width: 13px; height: 13px; }
+  .tip { margin-top: 10px; padding: 10px 14px; background: rgba(192,138,138,0.08); border-left: 3px solid var(--rose); border-radius: 0 8px 8px 0; font-size: 13.5px; color: var(--ink-soft); line-height: 1.5; }
+  .tip strong { color: var(--rose-deep); font-weight: 600; }
+  .warning { margin-top: 10px; padding: 10px 14px; background: rgba(176,136,80,0.1); border-left: 3px solid var(--gold); border-radius: 0 8px 8px 0; font-size: 13.5px; color: var(--ink-soft); line-height: 1.5; }
+  .warning strong { color: var(--gold); font-weight: 600; }
+  details.alternatives {
+    margin-top: 14px; background: rgba(138,154,120,0.07);
+    border: 1px solid rgba(138,154,120,0.25); border-radius: 12px; overflow: hidden;
+  }
+  details.alternatives summary {
+    padding: 12px 14px; cursor: pointer; list-style: none;
+    display: flex; align-items: center; justify-content: space-between;
+    font-size: 13.5px; font-weight: 600; color: var(--sage-deep);
+    letter-spacing: 0.03em; user-select: none;
+  }
+  details.alternatives summary::-webkit-details-marker { display: none; }
+  details.alternatives summary::after { content: '+'; font-family: var(--serif); font-size: 20px; color: var(--sage-deep); line-height: 1; }
+  details.alternatives[open] summary::after { content: '–'; }
+  details.alternatives .alt-content { padding: 0 14px 14px; }
+  .alt-item { padding: 14px 0; border-top: 1px dashed rgba(138,154,120,0.3); }
+  .alt-item:first-child { border-top: none; padding-top: 4px; }
+  .alt-item-name { font-family: var(--serif); font-size: 17px; font-weight: 500; color: var(--ink); margin-bottom: 3px; }
+  .alt-item-meta { font-size: 12.5px; color: var(--ink-soft); margin-bottom: 6px; font-style: italic; }
+  .alt-item-meta .price { color: var(--gold); font-weight: 600; font-style: normal; }
+  .alt-item-desc { font-size: 13.5px; color: var(--ink-soft); line-height: 1.5; margin-bottom: 8px; }
+  .alt-buttons { display: flex; flex-wrap: wrap; gap: 6px; }
+  .addon-card {
+    margin-top: 14px; padding: 14px;
+    background: linear-gradient(135deg, rgba(217,99,58,0.08), rgba(176,136,80,0.08));
+    border: 1px solid rgba(217,99,58,0.3); border-radius: 12px; position: relative;
+  }
+  .addon-flag { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.18em; color: var(--ember); text-transform: uppercase; margin-bottom: 6px; }
+  .addon-title { font-family: var(--serif); font-size: 18px; font-weight: 500; color: var(--ink); margin-bottom: 6px; }
+  .addon-desc { font-size: 13.5px; color: var(--ink-soft); line-height: 1.5; margin-bottom: 10px; }
+  .coaster-toggle {
+    display: flex; align-items: center; gap: 10px; padding: 10px 12px;
+    background: rgba(255,255,255,0.6); border-radius: 8px; cursor: pointer;
+    user-select: none; transition: background 0.2s ease; margin-top: 10px;
+  }
+  .coaster-toggle:hover { background: rgba(255,255,255,0.85); }
+  .toggle-box {
+    width: 22px; height: 22px; border: 2px solid var(--ember); border-radius: 6px;
+    flex-shrink: 0; display: flex; align-items: center; justify-content: center;
+    background: transparent; transition: all 0.2s ease;
+  }
+  .coaster-toggle.on .toggle-box { background: var(--ember); }
+  .coaster-toggle.on .toggle-box::after {
+    content: ''; width: 11px; height: 11px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='11' viewBox='0 0 24 24' fill='none' stroke='%23f5ede1' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+    background-size: contain; background-repeat: no-repeat;
+  }
+  .toggle-label { flex: 1; font-size: 13.5px; color: var(--ink); line-height: 1.4; }
+  .toggle-label strong { color: var(--ember); font-weight: 600; }
+  .card { background: rgba(255,255,255,0.55); border: 1px solid rgba(94,111,77,0.15); border-radius: 16px; padding: 20px; margin-bottom: 16px; }
+  .card-title { font-family: var(--serif); font-size: 20px; font-weight: 500; color: var(--ink); margin-bottom: 14px; letter-spacing: -0.01em; }
+  .card-title em { font-style: italic; color: var(--rose-deep); }
+  .check-list { list-style: none; }
+  .check-list li {
+    display: flex; align-items: flex-start; gap: 10px; padding: 8px 0;
+    border-bottom: 1px dashed rgba(94,111,77,0.15); font-size: 14.5px; color: var(--ink);
+    cursor: pointer; user-select: none; transition: opacity 0.2s ease;
+  }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list li::before {
+    content: ''; flex-shrink: 0; width: 16px; height: 16px;
+    border: 1.5px solid var(--sage); border-radius: 4px; margin-top: 3px;
+    transition: all 0.2s ease; background: transparent;
+  }
+  .check-list li.checked { opacity: 0.45; text-decoration: line-through; }
+  .check-list li.checked::before {
+    background: var(--sage); border-color: var(--sage);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23f5ede1' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+    background-size: 11px; background-position: center; background-repeat: no-repeat;
+  }
+  .list-section { margin-bottom: 28px; }
+  .list-section-title {
+    font-family: var(--serif); font-style: italic; font-size: 13px; letter-spacing: 0.18em;
+    color: var(--sage-deep); text-transform: uppercase; margin-bottom: 8px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .list-section-title::after { content: ''; flex: 1; height: 1px; background: rgba(94,111,77,0.2); }
+  .car-group { margin-bottom: 18px; padding: 16px; background: rgba(255,255,255,0.55); border: 1px solid rgba(94,111,77,0.15); border-radius: 14px; }
+  .car-header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px dashed rgba(94,111,77,0.2); }
+  .car-icon-wrap {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: var(--sage-soft); display: flex; align-items: center; justify-content: center;
+    color: var(--sage-deep); flex-shrink: 0;
+  }
+  .car-icon-wrap.rose { background: var(--rose-soft); color: var(--rose-deep); }
+  .car-icon-wrap svg { width: 22px; height: 22px; }
+  .car-name { font-family: var(--serif); font-size: 18px; font-weight: 600; color: var(--ink); }
+  .car-count { font-size: 12px; color: var(--ink-soft); margin-top: 2px; }
+  .passenger { display: flex; align-items: center; gap: 10px; padding: 6px 0; font-size: 14.5px; color: var(--ink); }
+  .passenger::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--sage); flex-shrink: 0; }
+  .passenger.bride::before { background: var(--rose); }
+  .passenger .crew-tag { font-family: var(--serif); font-style: italic; font-size: 13px; color: var(--rose-deep); }
+  .info-row { display: flex; justify-content: space-between; align-items: baseline; padding: 10px 0; border-bottom: 1px dashed rgba(94,111,77,0.15); font-size: 14.5px; gap: 12px; }
+  .info-row:last-child { border-bottom: none; }
+  .info-row .label { color: var(--ink-soft); flex-shrink: 0; }
+  .info-row .value { color: var(--ink); font-weight: 500; text-align: right; }
+  .bottom-nav {
+    position: fixed; bottom: 0; left: 0; right: 0;
+    background: rgba(245,237,225,0.96); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    border-top: 1px solid rgba(94,111,77,0.15); display: flex; justify-content: space-around;
+    padding: 8px 8px calc(8px + env(safe-area-inset-bottom)); z-index: 100;
+  }
+  .nav-item { flex: 1; background: transparent; border: none; padding: 8px 4px; display: flex; flex-direction: column; align-items: center; gap: 3px; cursor: pointer; color: var(--ink-soft); transition: color 0.2s ease; font-family: var(--sans); }
+  .nav-item svg { width: 22px; height: 22px; }
+  .nav-item-label { font-size: 10.5px; font-weight: 500; letter-spacing: 0.03em; }
+  .nav-item.active { color: var(--ember); }
+  .nav-item.active svg { stroke-width: 2.2; }
+  .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 28px; }
+  .stat { text-align: center; padding: 16px 8px; background: rgba(255,255,255,0.55); border: 1px solid rgba(94,111,77,0.15); border-radius: 14px; }
+  .stat-num { font-family: var(--serif); font-size: 28px; color: var(--rose-deep); line-height: 1; font-weight: 500; }
+  .stat-label { font-size: 11px; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 4px; font-weight: 500; }
+  .flourish { text-align: center; margin: 20px 0; color: var(--sage); opacity: 0.5; font-family: var(--serif); font-size: 20px; letter-spacing: 0.5em; }
+  .meal-pill {
+    display: inline-flex; align-items: center; gap: 6px; padding: 5px 11px;
+    background: var(--rose-soft); color: var(--rose-deep); border-radius: 999px;
+    font-size: 11.5px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; margin-top: 8px;
+  }
+  .budget-card {
+    margin-top: 20px; padding: 18px;
+    background: linear-gradient(135deg, rgba(176,136,80,0.1), rgba(217,99,58,0.05));
+    border: 1px solid rgba(176,136,80,0.3); border-radius: 14px;
+  }
+  .budget-title { font-family: var(--serif); font-size: 17px; font-weight: 600; color: var(--gold); margin-bottom: 12px; letter-spacing: 0.02em; }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <svg class="sprig left" width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 2v20M12 6c-3 0-5 2-5 5M12 9c-3 0-5 2-5 5M12 12c-3 0-5 2-5 5M12 5c3 0 5 2 5 5M12 8c3 0 5 2 5 5M12 11c3 0 5 2 5 5"/>
+  </svg>
+  <svg class="sprig right" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 2v20M12 6c-3 0-5 2-5 5M12 9c-3 0-5 2-5 5M12 5c3 0 5 2 5 5M12 8c3 0 5 2 5 5"/>
+  </svg>
+  <div class="hero-decoration">A Cousins Bach Trip</div>
+  <h1>Tammi's <em>Smoking Hot</em> Bach<span class="hero-flame">🔥</span></h1>
+  <p class="hero-sub">in the smoky mountains</p>
+  <div class="hero-dates">
+    <span>May 22</span><span class="dot"></span><span>May 25, 2026</span>
+  </div>
+</header>
+
+<nav class="tab-nav">
+  <div class="tab-scroll">
+    <button class="tab active" data-panel="overview">Overview</button>
+    <button class="tab" data-panel="cars">Cars</button>
+    <button class="tab" data-panel="day1">Fri · Arrival</button>
+    <button class="tab" data-panel="day2">Sat · Anakeesta</button>
+    <button class="tab" data-panel="day3">Sun · Horses</button>
+    <button class="tab" data-panel="day4">Mon · Home</button>
+    <button class="tab" data-panel="groceries">Groceries</button>
+    <button class="tab" data-panel="packing">Packing</button>
+  </div>
+</nav>
+
+<section class="panel active" id="overview">
+  <div class="section-label">— Welcome —</div>
+  <h2 class="section-title">The <em>Trip at a Glance</em></h2>
+  <p class="section-intro">Three nights at Peaceful Peak Cabin in Cobbly Nob, Gatlinburg. Pizza Friday · dinner out Saturday · grill night Sunday. 2 cars from Columbus.</p>
+
+  <div class="stats-grid">
+    <div class="stat"><div class="stat-num">9</div><div class="stat-label">Guests</div></div>
+    <div class="stat"><div class="stat-num">3</div><div class="stat-label">Nights</div></div>
+    <div class="stat"><div class="stat-num">2</div><div class="stat-label">Cars</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Home <em>Base</em></div>
+    <div class="info-row"><span class="label">Cabin</span><span class="value">Peaceful Peak</span></div>
+    <div class="info-row"><span class="label">Area</span><span class="value">Cobbly Nob, Gatlinburg</span></div>
+    <div class="info-row"><span class="label">Sleeps</span><span class="value">11 · 3 King suites + bunks + sofa</span></div>
+    <div class="info-row"><span class="label">Check in</span><span class="value">Fri · 4PM – 11PM</span></div>
+    <div class="info-row"><span class="label">Check out</span><span class="value">Mon · 10:00 AM sharp</span></div>
+    <div class="info-row"><span class="label">Drive from Columbus</span><span class="value">~7 hrs · ~470 mi</span></div>
+    <div style="margin-top:14px; display:flex; flex-wrap:wrap; gap:8px;">
+      <a class="nav-btn" href="https://www.airbnb.com/rooms/1421088463567242954" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        Airbnb listing
+      </a>
+      <a class="nav-btn" href="https://www.google.com/maps/dir/?api=1&destination=Cobbly+Nob+Gatlinburg+TN" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+        Directions
+      </a>
+    </div>
+  </div>
+
+  <div class="budget-card">
+    <div class="budget-title">💰 Per-Person Activity Budget</div>
+    <div class="price-row"><span class="desc">Anakeesta (admission + coasters)</span><span class="amount">~$33</span></div>
+    <div class="price-row"><span class="desc">Sugarlands 1-hr horseback ride</span><span class="amount">~$50</span></div>
+    <div class="price-row"><span class="desc">Cataract Falls hike</span><span class="amount">FREE</span></div>
+    <div class="price-row"><span class="desc">Saturday dinner out (est.)</span><span class="amount">~$40-55</span></div>
+    <div class="price-row price-total"><span class="desc">Activities subtotal / person</span><span class="amount">~$125-140</span></div>
+  </div>
+
+  <div class="budget-card" style="margin-top:14px;">
+    <div class="budget-title">⛽ Gas Budget · 2 cars</div>
+    <div class="price-row"><span class="desc">Round trip distance</span><span class="amount">~940 mi</span></div>
+    <div class="price-row"><span class="desc">Avg gas price (May 2026)</span><span class="amount">~$4.50/gal</span></div>
+    <div class="price-row"><span class="desc">Per car (~25 mpg)</span><span class="amount">~$170</span></div>
+    <div class="price-row price-total"><span class="desc">Both cars total · ~$34/person</span><span class="amount">~$340</span></div>
+    <p style="font-size:12px;color:var(--ink-soft);margin-top:10px;font-style:italic;">Each car splits among its 5 riders (~$34/person if split fully evenly across 9).</p>
+  </div>
+
+  <div class="budget-card" style="margin-top:14px;">
+    <div class="budget-title">🛒 Grocery Budget</div>
+    <div class="price-row"><span class="desc">Pizza Night (Friday)</span><span class="amount">~$30-40</span></div>
+    <div class="price-row"><span class="desc">3 breakfasts</span><span class="amount">~$70-90</span></div>
+    <div class="price-row"><span class="desc">Grill Night (Sunday)</span><span class="amount">~$90-110</span></div>
+    <div class="price-row"><span class="desc">Snacks &amp; drinks</span><span class="amount">~$50-70</span></div>
+    <div class="price-row"><span class="desc">Essentials (TP, foil, etc.)</span><span class="amount">~$20-30</span></div>
+    <div class="price-row price-total"><span class="desc">Total ~$260-340 · ~$30-38/person</span><span class="amount">~$300</span></div>
+  </div>
+
+  <div class="budget-card" style="margin-top:14px; background: linear-gradient(135deg, rgba(192,138,138,0.15), rgba(217,99,58,0.08)); border: 1px solid rgba(192,138,138,0.4);">
+    <div class="budget-title" style="color: var(--rose-deep);">🌸 Total Estimated Per Person</div>
+    <div class="price-row"><span class="desc">Activities</span><span class="amount">~$125-140</span></div>
+    <div class="price-row"><span class="desc">Gas (split)</span><span class="amount">~$34</span></div>
+    <div class="price-row"><span class="desc">Groceries (split)</span><span class="amount">~$30-38</span></div>
+    <div class="price-row"><span class="desc">Sunday lunch out</span><span class="amount">~$15-25</span></div>
+    <div class="price-row"><span class="desc">Buffer · tips, parking, surprises</span><span class="amount">~$40-60</span></div>
+    <div class="price-row price-total"><span class="desc">Plan to bring per person</span><span class="amount">~$250-300</span></div>
+    <p style="font-size:12px;color:var(--ink-soft);margin-top:10px;font-style:italic;">Cabin cost is separate. Better to budget high and come back with extra than the other way around.</p>
+  </div>
+
+  <div class="card" style="margin-top:20px;">
+    <div class="card-title">Sleeping <em>Setup</em></div>
+    <p style="font-size:14px; color:var(--ink-soft); margin-bottom:12px;">Decide together when you arrive. The cabin has:</p>
+    <div class="info-row"><span class="label">Main Level</span><span class="value">King Suite + bath</span></div>
+    <div class="info-row"><span class="label">Terrace</span><span class="value">King Suite + bath</span></div>
+    <div class="info-row"><span class="label">Terrace</span><span class="value">King Suite + bath</span></div>
+    <div class="info-row"><span class="label">Living Room</span><span class="value">Queen sleeper sofa</span></div>
+    <div class="info-row"><span class="label">Terrace</span><span class="value">Sleeper sofa + bunks</span></div>
+  </div>
+
+  <div class="warning"><strong>Heads up:</strong> Memorial Day weekend will be busy. Book Anakeesta tickets online, call your chosen restaurant to reserve for 9, and call Sugarlands Riding Stables ahead. Closed-toe shoes required for horses. Bears in the area — no food in cars or on decks.</div>
+
+  <div class="flourish">· · ·</div>
+</section>
+
+<section class="panel" id="cars">
+  <div class="section-label">— Road Trip —</div>
+  <h2 class="section-title">The <em>two cars</em></h2>
+  <p class="section-intro">Two cars driving down from Columbus. Cars can leave and arrive on their own schedules — just keep the group chat updated.</p>
+
+  <div class="car-group">
+    <div class="car-header">
+      <div class="car-icon-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 16H9m10 0h3v-3.15a1 1 0 0 0-.84-.99L16 11l-2.7-3.6a1 1 0 0 0-.8-.4H5.24a2 2 0 0 0-1.8 1.1l-.8 1.63A6 6 0 0 0 2 12.42V16h2"/><circle cx="6.5" cy="16.5" r="2.5"/><circle cx="16.5" cy="16.5" r="2.5"/></svg>
+      </div>
+      <div>
+        <div class="car-name">Car 1</div>
+        <div class="car-count">5 passengers</div>
+      </div>
+    </div>
+    <div class="passenger">Anam</div>
+    <div class="passenger">Briana</div>
+    <div class="passenger">Mayesha</div>
+    <div class="passenger">Raisa</div>
+    <div class="passenger">Rishat</div>
+  </div>
+
+  <div class="car-group">
+    <div class="car-header">
+      <div class="car-icon-wrap rose">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 16H9m10 0h3v-3.15a1 1 0 0 0-.84-.99L16 11l-2.7-3.6a1 1 0 0 0-.8-.4H5.24a2 2 0 0 0-1.8 1.1l-.8 1.63A6 6 0 0 0 2 12.42V16h2"/><circle cx="6.5" cy="16.5" r="2.5"/><circle cx="16.5" cy="16.5" r="2.5"/></svg>
+      </div>
+      <div>
+        <div class="car-name">Car 2 · Bride Car</div>
+        <div class="car-count">5 passengers</div>
+      </div>
+    </div>
+    <div class="passenger bride">Tammi <span class="crew-tag">— the bride</span></div>
+    <div class="passenger">Anika</div>
+    <div class="passenger">Asif</div>
+    <div class="passenger">Farhan</div>
+    <div class="passenger">Mim</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Drive <em>plan</em></div>
+    <div class="info-row"><span class="label">Distance</span><span class="value">~470 mi</span></div>
+    <div class="info-row"><span class="label">Time</span><span class="value">~7 hrs (no stops)</span></div>
+    <div class="info-row"><span class="label">Suggested depart</span><span class="value">Fri ~2-3 PM</span></div>
+    <div class="info-row"><span class="label">Arrival target</span><span class="value">~10 PM ET</span></div>
+    <div style="margin-top:14px;">
+      <a class="nav-btn" href="https://www.google.com/maps/dir/?api=1&origin=Columbus+OH&destination=Cobbly+Nob+Gatlinburg+TN" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+        Columbus → Cabin
+      </a>
+    </div>
+  </div>
+
+  <div class="tip"><strong>Group rule:</strong> Each car runs on its own schedule — leave when you're ready, stop when you need to. Just share an ETA in the group chat so we know when to expect you.</div>
+
+  <div class="flourish">· · ·</div>
+</section>
+
+<section class="panel" id="day1">
+  <div class="day-header">
+    <span class="day-tag">Day 01 · Arrival</span>
+    <h2 class="day-title">Pizza by <em>firelight</em></h2>
+    <div class="day-date">Friday · May 22</div>
+    <div class="weather-card">
+      <svg class="weather-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      <div class="weather-text"><strong>~75°F day / 57°F night</strong><br>Late-May norms · partly cloudy, possible PM showers</div>
+    </div>
+  </div>
+
+  <div class="timeline">
+    <div class="stop">
+      <div class="stop-time">~3:00 PM ET</div>
+      <h3 class="stop-title">Depart Columbus, OH</h3>
+      <p class="stop-desc">Each car leaves on its own schedule. ~7 hours to the cabin. Aim to arrive before 11 PM check-in cutoff.</p>
+      <div class="stop-meta">
+        <span class="distance-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>~470 mi · ~7 hrs</span>
+      </div>
+    </div>
+
+    <div class="stop">
+      <div class="stop-time">~10:00 PM ET</div>
+      <h3 class="stop-title">Arrive at Peaceful Peak</h3>
+      <p class="stop-desc">Self check-in with smart lock. Unload essentials only tonight.</p>
+      <div class="stop-meta">
+        <a class="nav-btn" href="https://www.google.com/maps/dir/?api=1&destination=Cobbly+Nob+Gatlinburg+TN" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>Navigate</a>
+      </div>
+    </div>
+
+    <div class="stop bride-event">
+      <div class="stop-time">10:30 PM</div>
+      <h3 class="stop-title">Pizza Night</h3>
+      <p class="stop-desc">Easy late dinner. Either pick up from Cobbly Nob Market on the way in (just 1 mile from cabin, open til 11 PM) or bring 3 frozen pizzas from home.</p>
+      <span class="meal-pill">🍕 Pizza Night</span>
+
+      <div class="price-block" style="margin-top:14px;">
+        <div class="price-label">Est. Cost</div>
+        <div class="price-row"><span class="desc">Cobbly Nob Market large pizza</span><span class="amount">~$18-22</span></div>
+        <div class="price-row"><span class="desc">3 pizzas for 9 people</span><span class="amount">~$55-65</span></div>
+        <div class="price-row"><span class="desc">Frozen from home (cheaper)</span><span class="amount">~$20-30</span></div>
+      </div>
+
+      <div class="stop-meta" style="margin-top:12px;">
+        <span class="distance-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>~1 mi · ~3 min</span>
+        <a class="nav-btn" href="https://www.google.com/maps/dir/?api=1&destination=Cobbly+Nob+Market+Gatlinburg+TN" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>Cobbly Nob Market</a>
+      </div>
+      <div class="tip"><strong>Tip:</strong> If everyone's exhausted, frozen pizzas + garlic bread = least friction.</div>
+    </div>
+  </div>
+
+  <div class="flourish">· · ·</div>
+</section>
+
+<section class="panel" id="day2">
+  <div class="day-header">
+    <span class="day-tag">Day 02 · Adventure</span>
+    <h2 class="day-title">Anakeesta &amp; <em>steakhouse</em></h2>
+    <div class="day-date">Saturday · May 23</div>
+    <div class="weather-card">
+      <svg class="weather-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      <div class="weather-text"><strong>~78°F day / 58°F night</strong><br>Warm & humid · pack a light rain jacket for surprise PM storms at Anakeesta</div>
+    </div>
+  </div>
+
+  <div class="timeline">
+    <div class="stop">
+      <div class="stop-time">9:30 AM</div>
+      <h3 class="stop-title">Cabin breakfast</h3>
+      <p class="stop-desc">Slow morning. Eggs, fruit, coffee on the deck.</p>
+    </div>
+
+    <div class="stop bride-event">
+      <div class="stop-time">12:00 PM</div>
+      <h3 class="stop-title">Anakeesta</h3>
+      <p class="stop-desc">Mountain-top playground above downtown Gatlinburg. Plan 3-4 hours up top.</p>
+
+      <div class="card" style="margin: 10px 0 14px; padding: 14px 16px; background: rgba(196,208,179,0.15); border: 1px solid rgba(94,111,77,0.2);">
+        <div style="font-family: var(--sans); font-size: 10.5px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--sage-deep); margin-bottom: 8px;">Things to do up there</div>
+        <ul style="list-style: none; padding: 0; margin: 0;">
+          <li style="padding: 5px 0; font-size: 13.5px; color: var(--ink);"><strong>Chondola or Ridge Rambler</strong> — scenic ride up the mountain</li>
+          <li style="padding: 5px 0; font-size: 13.5px; color: var(--ink);"><strong>Treetop Skywalk</strong> — 880 ft of hanging bridges, 50-60 ft up in the trees</li>
+          <li style="padding: 5px 0; font-size: 13.5px; color: var(--ink);"><strong>AnaVista Tower</strong> — 360° views of the Smokies</li>
+          <li style="padding: 5px 0; font-size: 13.5px; color: var(--ink);"><strong>Hellbender Mountain Coaster</strong> — double-rail, 3,350 ft, banked turns</li>
+          <li style="padding: 5px 0; font-size: 13.5px; color: var(--ink);"><strong>Rail Runner Mountain Coaster</strong> — single-rail, 25 mph, only one in the US</li>
+          <li style="padding: 5px 0; font-size: 13.5px; color: var(--ink);"><strong>Vista Gardens</strong> — botanical walking paths with sculptures</li>
+          <li style="padding: 5px 0; font-size: 13.5px; color: var(--ink);"><strong>TreeVenture Challenge</strong> — netted treehouses & rope bridges</li>
+          <li style="padding: 5px 0; font-size: 13.5px; color: var(--ink);"><strong>Firefly Village</strong> — mountaintop shopping & dining</li>
+          <li style="padding: 5px 0; font-size: 13.5px; color: var(--ink);"><strong>Dueling Ziplines</strong> — extra cost (~$60), race a friend down</li>
+        </ul>
+      </div>
+
+      <div class="price-block">
+        <div class="price-label">Anakeesta Pricing 2026</div>
+        <div class="price-row"><span class="desc">General Admission (adult)</span><span class="amount">$32.99</span></div>
+        <div class="price-row"><span class="desc">✓ Coaster Pass INCLUDED in admission</span><span class="amount">FREE</span></div>
+        <div class="price-row"><span class="desc">✓ Skywalk, AnaVista, Gardens, TreeVenture all included</span><span class="amount"></span></div>
+        <div class="price-row price-total"><span class="desc">Total for 9</span><span class="amount">~$297</span></div>
+      </div>
+
+      <div class="tip"><strong>Great news:</strong> The Coaster Pass is bundled into General Admission for your dates — both mountain coasters are free with your ticket. Just show up and ride.</div>
+
+      <div class="stop-meta" style="margin-top:14px;">
+        <span class="distance-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>~15 mi · ~25 min</span>
+        <a class="nav-btn" href="https://www.google.com/maps/dir/?api=1&destination=Anakeesta+576+Parkway+Gatlinburg+TN" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>Navigate</a>
+        <a class="nav-btn" style="background:var(--ember);" href="https://anakeesta.com/tickets/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="9" width="20" height="12" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>Book tickets</a>
+      </div>
+      <div class="warning"><strong>Book ahead:</strong> Timed-entry tickets required in 2026. Memorial Day weekend slots fill fast.</div>
+    </div>
+
+    <div class="stop bride-event">
+      <div class="stop-time">6:30 PM</div>
+      <h3 class="stop-title">Dinner out</h3>
+      <p class="stop-desc">The night out as a group. Picked spots that go beyond the usual steakhouse — interesting food with strong fish and vegetarian options. Whatever the group picks, call ahead for 9 people.</p>
+      <span class="meal-pill">🥂 Dinner Out</span>
+
+      <div class="price-block" style="margin-top:14px;">
+        <div class="price-label">Estimated Cost</div>
+        <div class="price-row"><span class="desc">Range across options</span><span class="amount">~$25-70/pp</span></div>
+        <div class="price-row"><span class="desc">Avg per person</span><span class="amount">~$40-55</span></div>
+        <div class="price-row price-total"><span class="desc">Group total est.</span><span class="amount">~$360-500</span></div>
+      </div>
+
+      <details class="alternatives" open>
+        <summary>Dinner options · pick one</summary>
+        <div class="alt-content">
+
+          <div class="alt-item">
+            <div class="alt-item-name">Chesapeake's Seafood &amp; Raw Bar 🦞</div>
+            <div class="alt-item-meta">★ 4.6 · <span class="price">~$40-60/pp</span> · 2,800+ reviews</div>
+            <p class="alt-item-desc">Standout fresh seafood — fish, lobster, oysters, crab cakes, ahi tuna. Live lobster tank, raw bar, fresh croissant bread basket. Lots of fish-forward options. Good non-seafood entrées too.</p>
+            <div class="alt-buttons">
+              <a class="nav-btn" href="https://www.google.com/maps/dir/?api=1&destination=Chesapeakes+Seafood+437+Parkway+Gatlinburg+TN" target="_blank" rel="noopener">Navigate</a>
+            </div>
+          </div>
+
+          <div class="alt-item">
+            <div class="alt-item-name">LeConte Tapas &amp; Grill 🍴</div>
+            <div class="alt-item-meta">★ 4.6 · <span class="price">~$40-50/pp</span> · Closer to cabin</div>
+            <p class="alt-item-desc">Best group pick — small plates means everyone tries lots of things. Chilean sea bass, bacon-wrapped shrimp, charcuterie, lamb lollipops, plenty of veggie tapas. Great for mixing tastes/diets across the table.</p>
+            <div class="alt-buttons">
+              <a class="nav-btn" href="https://www.google.com/maps/dir/?api=1&destination=LeConte+Tapas+805+East+Parkway+Gatlinburg+TN" target="_blank" rel="noopener">Navigate</a>
+              <a class="call-btn" href="tel:+18652777831">Call</a>
+            </div>
+          </div>
+
+          <div class="alt-item">
+            <div class="alt-item-name">Wild Plum Tea Room 🌿</div>
+            <div class="alt-item-meta">★ 4.3 · <span class="price">~$25-40/pp</span> · Vegan/vegetarian focused</div>
+            <p class="alt-item-desc">Charming spot in the Arts &amp; Crafts Community. Vegan and vegetarian-friendly menu, made-from-scratch everything. Salmon burger, lobster pie, beet salad, famous Wild Plum muffins. Reservations a must. <strong>Note: open Thursday-Saturday only, lunch hours till 3 PM — best as a Saturday lunch instead.</strong></p>
+            <div class="alt-buttons">
+              <a class="nav-btn" href="https://www.google.com/maps/dir/?api=1&destination=Wild+Plum+Tea+Room+555+Buckhorn+Rd+Gatlinburg+TN" target="_blank" rel="noopener">Navigate</a>
+              <a class="call-btn" href="tel:+18654363808">Call</a>
+            </div>
+          </div>
+
+          <div class="alt-item">
+            <div class="alt-item-name">Smoky Mountain Trout House 🐟</div>
+            <div class="alt-item-meta">★ 4.3 · <span class="price">~$25-35/pp</span> · Local &amp; affordable</div>
+            <p class="alt-item-desc">Small, cozy, beloved local spot focused on fresh Smoky Mountain trout — grilled, blackened, parmesan, smoked. Reasonable prices (~$20/head), homemade hushpuppies. No reservations, so come early or put name in.</p>
+            <div class="alt-buttons">
+              <a class="nav-btn" href="https://www.google.com/maps/dir/?api=1&destination=Smoky+Mountain+Trout+House+410+Parkway+Gatlinburg+TN" target="_blank" rel="noopener">Navigate</a>
+              <a class="call-btn" href="tel:+18652777196">Call</a>
+            </div>
+          </div>
+
+          <div class="alt-item">
+            <div class="alt-item-name">The Heirloom Room 🍷</div>
+            <div class="alt-item-meta">★ 4.5 · <span class="price">~$45-60/pp</span> · Refined, creekside</div>
+            <p class="alt-item-desc">Chef-driven, more upscale than most Gatlinburg spots. Shrimp &amp; grits, salmon, duck, charcuterie, burrata, vegetarian sides. Cozy creekside ambiance — feels like a real "occasion" dinner.</p>
+            <div class="alt-buttons">
+              <a class="nav-btn" href="https://www.google.com/maps/dir/?api=1&destination=The+Heirloom+Room+333+Parkway+Gatlinburg+TN" target="_blank" rel="noopener">Navigate</a>
+              <a class="call-btn" href="tel:+18654362561">Call</a>
+            </div>
+          </div>
+
+          <div class="alt-item">
+            <div class="alt-item-name">Pinchy's Lobster + Raw Bar 🍣</div>
+            <div class="alt-item-meta">★ 4.6 · <span class="price">~$50-70/pp</span> · In Sevierville · ~30 mi</div>
+            <p class="alt-item-desc">Seafood + sushi combo — lobster ramen, lobster ravioli, oysters, ceviche, full sushi menu. More variety than most options. A drive but worth it if the group's into seafood &amp; sushi.</p>
+            <div class="alt-buttons">
+              <a class="nav-btn" href="https://www.google.com/maps/dir/?api=1&destination=Pinchys+Lobster+212+Court+Ave+Sevierville+TN" target="_blank" rel="noopener">Navigate</a>
+              <a class="call-btn" href="tel:+18653654168">Call</a>
+            </div>
+          </div>
+
+        </div>
+      </details>
+
+      <div class="tip"><strong>Tip:</strong> Once the group decides, call to reserve a table for 9 ASAP — Memorial Day weekend fills up fast.</div>
+    </div>
+
+    <div class="stop bride-event">
+      <div class="stop-time">9:00 PM</div>
+      <h3 class="stop-title">Back to the cabin</h3>
+      <p class="stop-desc">Wind down at the cabin. Hot tub, fire pit, hangouts on the deck.</p>
+    </div>
+  </div>
+
+  <div class="flourish">· · ·</div>
+</section>
+
+<section class="panel" id="day3">
+  <div class="day-header">
+    <span class="day-tag">Day 03 · The Bach Day</span>
+    <h2 class="day-title">Horses, hike &amp; <em>grill night</em></h2>
+    <div class="day-date">Sunday · May 24</div>
+    <div class="weather-card">
+      <svg class="weather-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      <div class="weather-text"><strong>~78°F day / 58°F night</strong><br>Mornings clearest in the mountains · ideal for the ride & hike</div>
+    </div>
+  </div>
+
+  <div class="timeline">
+    <div class="stop">
+      <div class="stop-time">7:30 AM</div>
+      <h3 class="stop-title">Cabin breakfast (quick)</h3>
+      <p class="stop-desc">Bagels, fruit, coffee, yogurt. Get out the door.</p>
+    </div>
+
+    <div class="stop bride-event">
+      <div class="stop-time">9:00 AM</div>
+      <h3 class="stop-title">Sugarlands Riding Stables</h3>
+      <p class="stop-desc">Affordable group horseback ride inside Great Smoky Mountains National Park. Beginner-friendly, gentle horses, scenic mountain trails through creeks.</p>
+
+      <div class="price-block">
+        <div class="price-label">Sugarlands Pricing</div>
+        <div class="price-row"><span class="desc">1-hour ride · 4 mi</span><span class="amount">$50/person</span></div>
+        <div class="price-row"><span class="desc">1.5-hour ride · 6 mi</span><span class="amount">~$65/person</span></div>
+        <div class="price-row"><span class="desc">2-hour ride · 8 mi</span><span class="amount">~$80/person</span></div>
+        <div class="price-row price-total"><span class="desc">Group of 9 · 1-hr ride</span><span class="amount">~$450</span></div>
+      </div>
+
+      <div class="stop-meta">
+        <span class="distance-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>~17 mi · ~30 min</span>
+        <a class="nav-btn" href="https://www.google.com/maps/dir/?api=1&destination=Sugarlands+Riding+Stables+1409+Parkway+Gatlinburg+TN" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>Navigate</a>
+        <a class="call-btn" href="tel:+18654365470"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Book</a>
+      </div>
+      <div class="warning"><strong>Closed-toe shoes only.</strong> No sandals or flip-flops. Max weight 225 lbs. Long pants recommended.</div>
+
+      <details class="alternatives">
+        <summary>Other activity ideas (horseback &amp; Pigeon Forge)</summary>
+        <div class="alt-content">
+
+          <div style="margin: 4px 0 14px; padding: 8px 12px; background: rgba(192,138,138,0.08); border-radius: 8px; font-size: 12px; color: var(--rose-deep); font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase;">🐴 Horseback options</div>
+
+          <div class="alt-item">
+            <div class="alt-item-name">Smoky Mountain Riding Stable 💰 Cheapest</div>
+            <div class="alt-item-meta">★ 4.5 · <span class="price">$26.50/person</span> · ~22 mi from cabin</div>
+            <p class="alt-item-desc">Most affordable option. 3-mile (45-min) ride along Dudley Creek inside the National Park.</p>
+            <div class="alt-buttons">
+              <a class="nav-btn" href="https://www.google.com/maps/dir/?api=1&destination=Smoky+Mountain+Riding+Stables+1720+East+Parkway+Gatlinburg+TN" target="_blank" rel="noopener">Navigate</a>
+              <a class="call-btn" href="tel:+18654365634">Call</a>
+            </div>
+          </div>
+
+          <div class="alt-item">
+            <div class="alt-item-name">Cades Cove Riding Stables</div>
+            <div class="alt-item-meta">★ 4.5 · <span class="price">~$45/person</span> · ~50 mi · scenic drive</div>
+            <p class="alt-item-desc">Inside Cades Cove — gorgeous valley setting. Worth the longer drive for full Smokies immersion. Frequent bear sightings.</p>
+            <div class="alt-buttons">
+              <a class="nav-btn" href="https://www.google.com/maps/dir/?api=1&destination=Cades+Cove+Riding+Stables+Townsend+TN" target="_blank" rel="noopener">Navigate</a>
+              <a class="call-btn" href="tel:+18654489009">Call</a>
+            </div>
+          </div>
+
+          <div class="alt-item">
+            <div class="alt-item-name">Deer Farm Riding Stables</div>
+            <div class="alt-item-meta">★ 4.8 · <span class="price">$45 for 45 min</span> · ~25 mi</div>
+            <p class="alt-item-desc">Horseback riding PLUS petting zoo with deer, llamas, goats. Great for photos. Highest-rated alternative.</p>
+            <div class="alt-buttons">
+              <a class="nav-btn" href="https://www.google.com/maps/dir/?api=1&destination=Deer+Farm+Riding+Stables+Sevierville+TN" target="_blank" rel="noopener">Navigate</a>
+              <a class="call-btn" href="tel:+18654292276">Call</a>
+            </div>
+          </div>
+
+          <div style="margin: 18px 0 14px; padding: 8px 12px; background: rgba(217,99,58,0.1); border-radius: 8px; font-size: 12px; color: var(--ember); font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase;">🎢 Pigeon Forge options</div>
+
+          <div class="alt-item">
+            <div class="alt-item-name">Dollywood</div>
+            <div class="alt-item-meta">★ 4.7 · <span class="price">~$94/person</span> · ~22 mi · ~35 min</div>
+            <p class="alt-item-desc">World-class theme park with coasters, shows, food, and Dolly Parton everything. Full-day commitment — plan 6-8 hours. Lightning Rod & Big Bear Mountain are bucket-list coasters. Best value if you spend the whole day.</p>
+            <div class="alt-buttons">
+              <a class="nav-btn" href="https://www.google.com/maps/dir/?api=1&destination=Dollywood+2700+Dollywood+Parks+Blvd+Pigeon+Forge+TN" target="_blank" rel="noopener">Navigate</a>
+              <a class="nav-btn" style="background:var(--ember);" href="https://www.dollywood.com/themepark/tickets" target="_blank" rel="noopener">Tickets</a>
+            </div>
+          </div>
+
+          <div class="alt-item">
+            <div class="alt-item-name">The Island in Pigeon Forge</div>
+            <div class="alt-item-meta">★ 4.5 · <span class="price">Free entry · pay per ride</span> · ~22 mi · ~35 min</div>
+            <p class="alt-item-desc">Open-air entertainment complex. Free to walk around — pay only for what you do. The 200-ft Great Smoky Mountain Wheel (~$18) is the headliner. Tons of shops, fudge, mini bowling, ropes course, dancing fountains, and food. Easy half-day, low commitment.</p>
+            <div class="alt-buttons">
+              <a class="nav-btn" href="https://www.google.com/maps/dir/?api=1&destination=The+Island+in+Pigeon+Forge+TN" target="_blank" rel="noopener">Navigate</a>
+            </div>
+          </div>
+
+          <div class="alt-item">
+            <div class="alt-item-name">TopJump Trampoline &amp; Extreme Arena</div>
+            <div class="alt-item-meta">★ 4.6 · <span class="price">~$28/hr/person</span> · ~22 mi</div>
+            <p class="alt-item-desc">Huge indoor trampoline park — wall-to-wall trampolines, foam pits, ninja warrior course, dodgeball, candy store. High-energy fun for an hour or two. Wear socks (or buy grip socks there).</p>
+            <div class="alt-buttons">
+              <a class="nav-btn" href="https://www.google.com/maps/dir/?api=1&destination=TopJump+Trampoline+Pigeon+Forge+TN" target="_blank" rel="noopener">Navigate</a>
+              <a class="call-btn" href="tel:+18654536231">Call</a>
+            </div>
+          </div>
+
+          <div class="alt-item">
+            <div class="alt-item-name">WonderWorks</div>
+            <div class="alt-item-meta">★ 4.4 · <span class="price">~$36/person</span> · ~22 mi</div>
+            <p class="alt-item-desc">The upside-down building you can't miss on the Parkway. Interactive science museum with 100+ hands-on exhibits, ropes course, laser tag, 4D theater. Great rainy-day backup. ~2-3 hours inside.</p>
+            <div class="alt-buttons">
+              <a class="nav-btn" href="https://www.google.com/maps/dir/?api=1&destination=WonderWorks+100+Music+Rd+Pigeon+Forge+TN" target="_blank" rel="noopener">Navigate</a>
+              <a class="call-btn" href="tel:+18659680061">Call</a>
+            </div>
+          </div>
+
+          <div class="alt-item">
+            <div class="alt-item-name">Titanic Museum</div>
+            <div class="alt-item-meta">★ 4.7 · <span class="price">~$34/person</span> · ~22 mi</div>
+            <p class="alt-item-desc">Two-story ship-shaped museum with 450+ real Titanic artifacts. You get a boarding pass for an actual passenger and find out at the end if they survived. Takes ~2 hours, totally immersive.</p>
+            <div class="alt-buttons">
+              <a class="nav-btn" href="https://www.google.com/maps/dir/?api=1&destination=Titanic+Museum+2134+Parkway+Pigeon+Forge+TN" target="_blank" rel="noopener">Navigate</a>
+              <a class="call-btn" href="tel:+18004381100">Call</a>
+            </div>
+          </div>
+
+          <div class="alt-item">
+            <div class="alt-item-name">Pigeon Forge Mountain Coasters</div>
+            <div class="alt-item-meta">★ 4.6 · <span class="price">~$20-25/ride</span> · ~22 mi</div>
+            <p class="alt-item-desc">Multiple coasters on the Parkway — Smoky Mountain Alpine Coaster (the original, longest in US), Rocky Top Mountain Coaster, Goats on the Roof, Ole Smoky Mountain Coaster. Pick whichever's least busy.</p>
+            <div class="alt-buttons">
+              <a class="nav-btn" href="https://www.google.com/maps/dir/?api=1&destination=Smoky+Mountain+Alpine+Coaster+Pigeon+Forge+TN" target="_blank" rel="noopener">Navigate</a>
+            </div>
+          </div>
+
+        </div>
+      </details>
+    </div>
+
+    <div class="stop">
+      <div class="stop-time">11:30 AM</div>
+      <h3 class="stop-title">Cataract Falls hike</h3>
+      <p class="stop-desc">Easy 1-mile round-trip from Sugarlands Visitor Center, ending at a small waterfall. Flat, shaded, family-friendly. Right next to the stables.</p>
+
+      <div class="price-block">
+        <div class="price-label">Cost</div>
+        <div class="price-row"><span class="desc">Trail access</span><span class="amount">FREE</span></div>
+        <div class="price-row"><span class="desc">Parking at visitor center</span><span class="amount">$5 day pass</span></div>
+      </div>
+
+      <div class="stop-meta">
+        <span class="distance-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>~17 mi · ~30 min from cabin</span>
+        <a class="nav-btn" href="https://www.google.com/maps/dir/?api=1&destination=Sugarlands+Visitor+Center+Gatlinburg+TN" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>Navigate</a>
+      </div>
+      <div class="tip"><strong>Trail starts</strong> behind the Sugarlands Visitor Center. Bring water and sunscreen.</div>
+    </div>
+
+    <div class="stop">
+      <div class="stop-time">1:00 PM</div>
+      <h3 class="stop-title">Lunch · grab something on the way back</h3>
+      <p class="stop-desc">Nice break before the cabin. Sunday lunch options below — pick whatever the group's craving on the way back from the hike.</p>
+      <span class="meal-pill">🥪 Lunch</span>
+
+      <details class="alternatives" open>
+        <summary>Lunch options · pick one</summary>
+        <div class="alt-content">
+
+          <div class="alt-item">
+            <div class="alt-item-name">Tennessee Jed's Craft Sandwiches 🥪</div>
+            <div class="alt-item-meta">★ 4.8 · <span class="price">~$12-18/pp</span> · Quick &amp; cheap</div>
+            <p class="alt-item-desc">Hands-down the highest-rated sandwich spot in Gatlinburg. Famous Reuben on rye, kombucha on tap, salads, Frito pie, pet-friendly patio. Locally owned. Closes at 3:30 PM Sunday.</p>
+            <div class="alt-buttons">
+              <a class="nav-btn" href="https://www.google.com/maps/dir/?api=1&destination=Tennessee+Jeds+631+Parkway+Gatlinburg+TN" target="_blank" rel="noopener">Navigate</a>
+              <a class="call-btn" href="tel:+18654121131">Call</a>
+            </div>
+          </div>
+
+          <div class="alt-item">
+            <div class="alt-item-name">Split Rail Eats 🍔</div>
+            <div class="alt-item-meta">★ 4.8 · <span class="price">~$15-25/pp</span> · Hidden gem</div>
+            <p class="alt-item-desc">Modern, casual, beloved local spot. Burgers, chicken sandwiches, grilled cheese with soup, salads, tots, fried pickles. Quirky location inside a condo complex but worth finding. Open 11 AM Sunday.</p>
+            <div class="alt-buttons">
+              <a class="nav-btn" href="https://www.google.com/maps/dir/?api=1&destination=Split+Rail+Eats+849+Glades+Rd+Gatlinburg+TN" target="_blank" rel="noopener">Navigate</a>
+              <a class="call-btn" href="tel:+18653258445">Call</a>
+            </div>
+          </div>
+
+          <div class="alt-item">
+            <div class="alt-item-name">Reggae Jam Restaurant 🌶️</div>
+            <div class="alt-item-meta">★ 4.9 · <span class="price">~$15-25/pp</span> · Jamaican</div>
+            <p class="alt-item-desc">Jamaican food in Gatlinburg — jerk chicken, oxtail, curry goat, jerk chicken Philly, surprisingly great reuben. Family-owned, friendly, food made fresh in front of you. Different from anything else in town.</p>
+            <div class="alt-buttons">
+              <a class="nav-btn" href="https://www.google.com/maps/dir/?api=1&destination=Reggae+Jam+450+Brookside+Village+Way+Gatlinburg+TN" target="_blank" rel="noopener">Navigate</a>
+              <a class="call-btn" href="tel:+18653303360">Call</a>
+            </div>
+          </div>
+
+          <div class="alt-item">
+            <div class="alt-item-name">Smith &amp; Son Corner Kitchen 🍴</div>
+            <div class="alt-item-meta">★ 4.2 · <span class="price">~$15-25/pp</span> · Group-friendly</div>
+            <p class="alt-item-desc">Bigger spot with 3 floors, easy seating for 9. Mahi tacos, catfish, fried chicken, buffalo chicken sandwich, mac and cheese, salads. Sports-bar feel.</p>
+            <div class="alt-buttons">
+              <a class="nav-btn" href="https://www.google.com/maps/dir/?api=1&destination=Smith+and+Son+Corner+Kitchen+812+Parkway+Gatlinburg+TN" target="_blank" rel="noopener">Navigate</a>
+              <a class="call-btn" href="tel:+18654301978">Call</a>
+            </div>
+          </div>
+
+          <div class="alt-item">
+            <div class="alt-item-name">Cabin lunch (skip going out) 🏡</div>
+            <div class="alt-item-meta"><span class="price">FREE</span> · Lowest friction</div>
+            <p class="alt-item-desc">Skip lunch out and head straight back to the cabin. Eat leftovers, sandwiches, snacks, and start the deck/hot tub time earlier. Saves money and prep for the big grill dinner.</p>
+          </div>
+
+        </div>
+      </details>
+    </div>
+
+    <div class="stop">
+      <div class="stop-time">2:30 PM</div>
+      <h3 class="stop-title">Back to the cabin · chill</h3>
+      <p class="stop-desc">Deck time, hot tub. Open afternoon — do whatever the group feels like.</p>
+    </div>
+
+    <div class="stop bride-event">
+      <div class="stop-time">6:00 PM</div>
+      <h3 class="stop-title">Grill Night · the bach dinner</h3>
+      <p class="stop-desc">Big group cookout on the wraparound deck. Beef burgers, all-beef hot dogs, corn, watermelon, cake for Tammi. Fire pit + sparkling cider toast after.</p>
+      <span class="meal-pill">🔥 Grill Night</span>
+    </div>
+  </div>
+
+  <div class="flourish">· · ·</div>
+</section>
+
+<section class="panel" id="day4">
+  <div class="day-header">
+    <span class="day-tag">Day 04 · Departure</span>
+    <h2 class="day-title">Coffee, hugs, <em>home</em></h2>
+    <div class="day-date">Monday · May 25 · Memorial Day</div>
+    <div class="weather-card">
+      <svg class="weather-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      <div class="weather-text"><strong>~80°F day / 60°F night</strong><br>Comfortable for the drive home · Memorial Day traffic possible</div>
+    </div>
+  </div>
+
+  <div class="timeline">
+    <div class="stop">
+      <div class="stop-time">8:00 AM</div>
+      <h3 class="stop-title">Pack &amp; clean</h3>
+      <p class="stop-desc">Strip beds if requested, run the dishwasher, take out trash. Last hot tub soak, group photo on the deck.</p>
+    </div>
+
+    <div class="stop">
+      <div class="stop-time">9:30 AM</div>
+      <h3 class="stop-title">Final breakfast</h3>
+      <p class="stop-desc">Use up leftovers — eggs, fruit, bagels. Coffee for the road.</p>
+    </div>
+
+    <div class="stop">
+      <div class="stop-time">10:00 AM SHARP</div>
+      <h3 class="stop-title">Check out</h3>
+      <p class="stop-desc">Strictly enforced. Lock up. Don't forget chargers in outlets!</p>
+      <div class="warning"><strong>Memorial Day traffic:</strong> expect heavier drive home — plan for ~8 hrs instead of 7.</div>
+    </div>
+
+    <div class="stop">
+      <div class="stop-time">~6:00 PM ET</div>
+      <h3 class="stop-title">Home to Columbus 💛</h3>
+      <p class="stop-desc">~7-8 hours back. Group chat for the rest of forever.</p>
+      <div class="stop-meta">
+        <a class="nav-btn" href="https://www.google.com/maps/dir/?api=1&destination=Columbus+OH" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>Navigate home</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="flourish">· · ·</div>
+</section>
+
+<section class="panel" id="groceries">
+  <div class="section-label">— The Run —</div>
+  <h2 class="section-title">Grocery <em>list</em></h2>
+  <p class="section-intro">Closest big store: Food City in Gatlinburg (~13 mi, ~22 min from the cabin). Do one big trip Saturday morning. Tap each item to check it off.</p>
+
+  <div style="margin-bottom:18px;">
+    <a class="nav-btn" href="https://www.google.com/maps/dir/?api=1&destination=Food+City+1219+East+Pkwy+Gatlinburg+TN" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>Navigate to Food City</a>
+  </div>
+
+  <div class="list-section">
+    <div class="list-section-title">Friday · Pizza Night</div>
+    <ul class="check-list" data-storage="g-pizza">
+      <li>3 large frozen pizzas</li>
+    </ul>
+  </div>
+
+  <div class="list-section">
+    <div class="list-section-title">Breakfasts · Sat · Sun · Mon</div>
+    <ul class="check-list" data-storage="g-breakfast">
+      <li>Eggs (2 dozen)</li>
+      <li>Turkey bacon (×2 packs)</li>
+      <li>Croissants</li>
+      <li>Bananas</li>
+      <li>Coffee (ground) + creamer + sugar</li>
+    </ul>
+  </div>
+
+  <div class="list-section">
+    <div class="list-section-title">Sunday · Grill Night</div>
+    <ul class="check-list" data-storage="g-grill">
+      <li>3 lbs ground beef for burgers</li>
+      <li>Burger buns (×12)</li>
+      <li>All-beef hot dogs (×12)</li>
+      <li>Hot dog buns (×12)</li>
+      <li>Watermelon</li>
+      <li>Ketchup, mustard, mayo, BBQ sauce</li>
+      <li>Cheese slices for burgers</li>
+      <li>Lettuce, tomato, pickles, red onion</li>
+      <li>🎂 Cake or cupcakes for Tammi</li>
+    </ul>
+  </div>
+
+  <div class="list-section">
+    <div class="list-section-title">Snacks</div>
+    <ul class="check-list" data-storage="g-snacks">
+      <li>Popcorn (microwave packs or bagged)</li>
+      <li>Chips (×2 bags)</li>
+      <li>Cookies</li>
+    </ul>
+  </div>
+
+  <div class="list-section">
+    <div class="list-section-title">Drinks</div>
+    <ul class="check-list" data-storage="g-drinks">
+      <li><strong>Sparkling cider</strong> (×2 bottles · for the toast)</li>
+      <li><strong>Bottled water</strong> (×2 cases)</li>
+      <li>Sodas / seltzers per preferences</li>
+    </ul>
+  </div>
+
+  <div class="list-section">
+    <div class="list-section-title">Other Essentials</div>
+    <ul class="check-list" data-storage="g-other">
+      <li>Aluminum foil + ziploc bags</li>
+      <li>Paper towels (×2)</li>
+      <li>Laundry detergent</li>
+      <li>Sunscreen + bug spray</li>
+    </ul>
+  </div>
+
+  <div class="flourish">· · ·</div>
+</section>
+
+<section class="panel" id="packing">
+  <div class="section-label">— What to Bring —</div>
+  <h2 class="section-title">Packing <em>list</em></h2>
+  <p class="section-intro">Pack for 70-80°F days and 50s nights with a chance of afternoon showers. Tap each item to check it off.</p>
+
+  <div class="list-section">
+    <div class="list-section-title">Clothing</div>
+    <ul class="check-list" data-storage="p-clothes">
+      <li>T-shirts / tanks (warm days)</li>
+      <li>Light long-sleeve or sweater (cool evenings)</li>
+      <li>Light rain jacket or packable umbrella</li>
+      <li>Hiking pants or leggings (Sunday)</li>
+      <li>Jeans / casual pants</li>
+      <li>One nice outfit for dinner out</li>
+      <li>Swimsuit (hot tub)</li>
+      <li>Pajamas / loungewear</li>
+      <li>Socks (extra for hiking)</li>
+      <li>Underwear · enough for the trip</li>
+    </ul>
+  </div>
+
+  <div class="list-section">
+    <div class="list-section-title">Shoes</div>
+    <ul class="check-list" data-storage="p-shoes">
+      <li>Sneakers / hiking shoes</li>
+      <li>Closed-toe shoes for horseback riding ⚠️</li>
+      <li>Sandals / slides for cabin & hot tub</li>
+      <li>Nicer pair for dinner out</li>
+    </ul>
+  </div>
+
+  <div class="list-section">
+    <div class="list-section-title">Toiletries</div>
+    <ul class="check-list" data-storage="p-toiletries">
+      <li>Shampoo, conditioner, body wash</li>
+      <li>Face wash + skincare</li>
+      <li>Toothbrush, toothpaste, floss</li>
+      <li>Deodorant, lotion</li>
+      <li>Hair products + brush + ties</li>
+      <li>Blow dryer / straightener if needed</li>
+      <li>Makeup + remover</li>
+      <li>Razor</li>
+      <li>Feminine products</li>
+      <li>Sunscreen + bug spray</li>
+      <li>Medications + Advil / Tylenol</li>
+    </ul>
+  </div>
+
+  <div class="list-section">
+    <div class="list-section-title">Tech & Misc</div>
+    <ul class="check-list" data-storage="p-tech">
+      <li>Phone + long charging cable</li>
+      <li>Power bank for hike day</li>
+      <li>Camera / GoPro</li>
+      <li>Portable speaker for the cabin</li>
+      <li>Reusable water bottle (each person)</li>
+      <li>Sunglasses</li>
+      <li>Day backpack for Anakeesta / hike</li>
+      <li>Driver's licenses</li>
+    </ul>
+  </div>
+
+  <div class="list-section">
+    <div class="list-section-title">For the Cars</div>
+    <ul class="check-list" data-storage="p-cars">
+      <li>Road snacks</li>
+      <li>Phone car mount + charger</li>
+      <li>Aux cable or Bluetooth-ready</li>
+      <li>Cash for tolls (Ohio + WV)</li>
+      <li>Driver's licenses & registration</li>
+    </ul>
+  </div>
+
+  <div class="flourish">· · ·</div>
+</section>
+
+<nav class="bottom-nav">
+  <button class="nav-item active" data-panel="overview">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+    <span class="nav-item-label">Overview</span>
+  </button>
+  <button class="nav-item" data-panel="cars">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 16H9m10 0h3v-3.15a1 1 0 0 0-.84-.99L16 11l-2.7-3.6a1 1 0 0 0-.8-.4H5.24a2 2 0 0 0-1.8 1.1l-.8 1.63A6 6 0 0 0 2 12.42V16h2"/><circle cx="6.5" cy="16.5" r="2.5"/><circle cx="16.5" cy="16.5" r="2.5"/></svg>
+    <span class="nav-item-label">Cars</span>
+  </button>
+  <button class="nav-item" data-panel="day1">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+    <span class="nav-item-label">Itinerary</span>
+  </button>
+  <button class="nav-item" data-panel="groceries">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+    <span class="nav-item-label">Groceries</span>
+  </button>
+  <button class="nav-item" data-panel="packing">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21V9a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v12"/><line x1="2" y1="21" x2="22" y2="21"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg>
+    <span class="nav-item-label">Packing</span>
+  </button>
+</nav>
+
+<script>
+  const tabs = document.querySelectorAll('.tab');
+  const panels = document.querySelectorAll('.panel');
+  const bottomItems = document.querySelectorAll('.nav-item');
+
+  function switchPanel(panelId) {
+    panels.forEach(p => p.classList.toggle('active', p.id === panelId));
+    tabs.forEach(t => t.classList.toggle('active', t.dataset.panel === panelId));
+    const itineraryPanels = ['day1','day2','day3','day4'];
+    bottomItems.forEach(b => {
+      if (itineraryPanels.includes(panelId)) {
+        b.classList.toggle('active', b.dataset.panel === 'day1');
+      } else {
+        b.classList.toggle('active', b.dataset.panel === panelId);
+      }
+    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  tabs.forEach(t => t.addEventListener('click', () => switchPanel(t.dataset.panel)));
+  bottomItems.forEach(b => b.addEventListener('click', () => switchPanel(b.dataset.panel)));
+
+  const coasterToggle = document.getElementById('coasterToggle');
+  const coasterTotal = document.getElementById('coasterTotal');
+
+  if (coasterToggle) {
+    const updateCoasterState = (isOn) => {
+      coasterToggle.classList.toggle('on', isOn);
+      coasterTotal.textContent = isOn
+        ? '✓ Added ~$153 ($16.99 × 9) to group budget'
+        : 'Tap to add ~$153 total to the group budget';
+    };
+    (async () => {
+      try {
+        const result = await window.storage.get('coaster-addon');
+        if (result && result.value === 'on') updateCoasterState(true);
+      } catch (e) {}
+    })();
+    coasterToggle.addEventListener('click', async () => {
+      const isOn = !coasterToggle.classList.contains('on');
+      updateCoasterState(isOn);
+      try { await window.storage.set('coaster-addon', isOn ? 'on' : 'off'); } catch (e) {}
+    });
+  }
+
+  document.querySelectorAll('.check-list').forEach(list => {
+    const key = list.dataset.storage;
+    const items = list.querySelectorAll('li');
+    (async () => {
+      try {
+        const result = await window.storage.get(key);
+        if (result && result.value) {
+          const checked = JSON.parse(result.value);
+          items.forEach((li, i) => { if (checked[i]) li.classList.add('checked'); });
+        }
+      } catch (e) {}
+    })();
+    items.forEach((li) => {
+      li.addEventListener('click', async () => {
+        li.classList.toggle('checked');
+        const state = Array.from(items).map(item => item.classList.contains('checked'));
+        try { await window.storage.set(key, JSON.stringify(state)); } catch (e) {}
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
